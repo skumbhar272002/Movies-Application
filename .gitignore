@@ -1,0 +1,21 @@
+# Dependencies
+node_modules/
+
+# Build directories (keep built files in root for GitHub Pages, but ignore source build folder)
+client/build/
+
+# Logs
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# IDE files
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
