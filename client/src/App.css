@@ -1,0 +1,43 @@
+.App {
+  text-align: center;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.form input {
+  margin: 10px 0;
+  padding: 10px;
+  width: 300px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+.form button {
+  padding: 10px 20px;
+  background-color: #28a745;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.form button:hover {
+  background-color: #218838;
+}
+.card {
+  border: 1px solid black;
+  border-radius: 4px;
+  padding: 20px;
+  margin: 10px auto;
+  width: 400px;
+  text-align: center;
+}
+#update {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
