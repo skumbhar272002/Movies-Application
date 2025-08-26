@@ -5,7 +5,6 @@ function App() {
   const [movieName, setMovieName] = useState('');
   const [movieReview, setMovieReview] = useState('');
   const [movieList, setMovieList] = useState([]);
-  const [newReview, setNewReview] = useState('');
 
 useEffect(() => {
   Axios.get('http://localhost:3001/api/get').then((response) => {
@@ -25,14 +24,14 @@ useEffect(() => {
   };
 
 const editReview = (movieName) => {
-  const newReview = document.getElementById("Edit Review").value;
+  const updatedReview = document.getElementById("Edit Review").value;
   Axios.put(`http://localhost:3001/api/update`, {
     movieName,
-    movieReview: newReview,
+    movieReview: updatedReview,
   }).then(() => {
     setMovieList(
       movieList.map((val) =>
-        val.moviename === movieName ? { ...val, moviereview: newReview } : val
+        val.moviename === movieName ? { ...val, moviereview: updatedReview } : val
       )
     );
   });
@@ -43,7 +42,6 @@ const deleteReview = (movieName) => {
   Axios.delete(`http://localhost:3001/api/delete`, { data: { movieName } }).then(() => {
     setMovieList(movieList.filter((val) => val.moviename !== movieName));
   });
-  setNewReview('');
 };
 
   return (
@@ -63,7 +61,7 @@ const deleteReview = (movieName) => {
             <div className={"card"} key={key}>
               <h3>{val.moviename}</h3>
               <p>{val.moviereview}</p>
-              <input type="text" id="Edit Review" onChange={(e) => setNewReview(e.target.value)} />
+              <input type="text" id="Edit Review" />
               <button onClick={() => editReview(val.moviename)}>Edit</button>
               <button onClick={() => deleteReview(val.moviename)}>Delete</button>
             </div>
